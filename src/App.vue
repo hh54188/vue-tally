@@ -1,28 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Count />
+    <button v-on:click="addCount()">Add</button>
+    <button v-on:click="minusCount()">Minus</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Count from './components/Count.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Count
+  },
+  methods: {
+    addCount() {
+      this.$store.dispatch('add');
+    },
+    minusCount() {
+      this.$store.dispatch('minus');
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
